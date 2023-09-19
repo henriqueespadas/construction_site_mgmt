@@ -1,0 +1,16 @@
+<odoo>
+
+    <menuitem id="menu_construction_main" name="Gerenciamento de Obras"/>
+
+<!--    <menuitem id="menu_construction_projects" name="Projetos de Obra" parent="menu_construction_main"/>-->
+    <menuitem id="menu_construction_shifts" name="Funcionários e Turnos" parent="menu_construction_main" action="action_construction_shifts"/>
+<!--    <menuitem id="menu_construction_materials" name="Estoque de Materiais" parent="menu_construction_main"/>-->
+<!--    <menuitem id="menu_construction_suppliers" name="Fornecedores e Compras" parent="menu_construction_main"/>-->
+<!--    <menuitem id="menu_construction_invoices" name="Financeiro e Faturamento" parent="menu_construction_main"/>-->
+<!--    <menuitem id="menu_construction_reports" name="Relatórios" parent="menu_construction_main"/>-->
+<!--    <menuitem id="menu_construction_settings" name="Configurações" parent="menu_construction_main"/>-->
+
+<!--    <menuitem id="menu_construction_material_report" name="Relatório de Utilização de Materiais" parent="menu_construction_reports"/>-->
+<!--    <menuitem id="menu_construction_financial_report" name="Relatório Financeiro" parent="menu_construction_reports"/>-->
+</odoo>
+
