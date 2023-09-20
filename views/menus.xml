@@ -1,9 +1,10 @@
 <odoo>
 
-    <menuitem id="menu_construction_main" name="Gerenciamento de Obras"/>
+    <menuitem id="menu_construction_main" name="Construction Management"/>
 
-<!--    <menuitem id="menu_construction_projects" name="Projetos de Obra" parent="menu_construction_main"/>-->
-    <menuitem id="menu_construction_shifts" name="Funcionários e Turnos" parent="menu_construction_main" action="action_construction_shifts"/>
+    <menuitem id="menu_construction_work" name="Constructions" parent="menu_construction_main" action="action_construction_work" sequence="10"/>
+    <menuitem id="menu_construction_shifts" name="Employess and Turns" parent="menu_construction_main" action="action_construction_shifts" sequence="20"/>
+    <menuitem id="menu_construction_projects" name="Construction Projects" parent="menu_construction_main" action="action_project" sequence="30"/>
 <!--    <menuitem id="menu_construction_materials" name="Estoque de Materiais" parent="menu_construction_main"/>-->
 <!--    <menuitem id="menu_construction_suppliers" name="Fornecedores e Compras" parent="menu_construction_main"/>-->
 <!--    <menuitem id="menu_construction_invoices" name="Financeiro e Faturamento" parent="menu_construction_main"/>-->

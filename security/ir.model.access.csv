@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-acess_construction_shift,construction.shift,model_construction_shift,,1,1,1,1
+access_construction_shift,construction.shift,model_construction_shift,,1,1,1,1
+access_construction_work,construction.work,model_construction_work,,1,1,1,1
+access_construction_line,construction.line,model_construction_work_line,,1,1,1,1

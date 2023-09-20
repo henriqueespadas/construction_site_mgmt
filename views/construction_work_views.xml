@@ -1,0 +1,55 @@
+<odoo>
+
+    <record id="view_construction_work_form" model="ir.ui.view">
+        <field name="name">construction.work.form</field>
+        <field name="model">construction.work</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="project_id"/>
+                        <field name="estimated_budget"/>
+                        <field name="description"/>
+                    </group>
+                    <group>
+                        <field name="estimated_budget"/>
+                        <field name="employee_ids"/>
+                        <field name="state"/>
+                        <field name="work_type"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+                <notebook>
+                    <page>
+                        <field name="work_line_ids">
+                            <tree>
+                                <field name="description"/>
+                                <field name="amount"/>
+                                <field name="work_id"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_construction_work_tree" model="ir.ui.view">
+        <field name="name">construction.work.tree</field>
+        <field name="model">construction.work</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="project_id"/>
+                <field name="estimated_budget"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>
