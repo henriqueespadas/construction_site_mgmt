@@ -1,20 +1,20 @@
 <odoo>
 
-    <record id="action_construction_shifts" model="ir.actions.act_window">
+    <record id="action_cstr_shifts" model="ir.actions.act_window">
         <field name="name">Construction Shifts</field>
-        <field name="res_model">construction.shift</field>
+        <field name="res_model">cstr.shift</field>
         <field name="view_mode">tree,form</field>
     </record>
 
-    <record id="action_project" model="ir.actions.act_window">
+    <record id="action_cstr_project" model="ir.actions.act_window">
         <field name="name">Projects</field>
-        <field name="res_model">project.project</field>
+        <field name="res_model">cstr.project</field>
         <field name="view_mode">tree,form</field>
     </record>
 
-    <record id="action_construction_work" model="ir.actions.act_window">
+    <record id="action_cstr_work" model="ir.actions.act_window">
         <field name="name">Construction Work</field>
-        <field name="res_model">construction.work</field>
+        <field name="res_model">cstr.work</field>
         <field name="view_mode">tree,form</field>
     </record>
 

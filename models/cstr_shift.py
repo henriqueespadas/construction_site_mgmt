@@ -2,7 +2,7 @@ from odoo import api, fields, models, _
 
 
 class ConstructionShift(models.Model):
-    _name = "construction.shift"
+    _name = "cstr.shift"
     _description = "Construction Shift"
 
     start_time = fields.Datetime()

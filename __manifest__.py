@@ -3,7 +3,7 @@
     "version": "14.0.1.0.0",
     "category": "Operations/Construction",
     "license": "AGPL-3",
-    "summary": "Advanced management features for construction sites",
+    "summary": "Advanced management features for cstr sites",
     "author": "Espadas",
     "depends": [
         "hr",
@@ -13,7 +13,7 @@
         "security/ir.model.access.csv",
         "views/actions.xml",
         "views/menus.xml",
-        "views/construction_shifit_views.xml",
+        "views/cstr_shifit_views.xml",
         "views/project_views.xml",
     ],
     "installable": True,

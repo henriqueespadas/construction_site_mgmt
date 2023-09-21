@@ -1,17 +1,17 @@
 <odoo>
 
-    <menuitem id="menu_construction_main" name="Construction Management"/>
+    <menuitem id="menu_cstr_main" name="Construction Management"/>
 
-    <menuitem id="menu_construction_work" name="Constructions" parent="menu_construction_main" action="action_construction_work" sequence="10"/>
-    <menuitem id="menu_construction_shifts" name="Employess and Turns" parent="menu_construction_main" action="action_construction_shifts" sequence="20"/>
-    <menuitem id="menu_construction_projects" name="Construction Projects" parent="menu_construction_main" action="action_project" sequence="30"/>
-<!--    <menuitem id="menu_construction_materials" name="Estoque de Materiais" parent="menu_construction_main"/>-->
-<!--    <menuitem id="menu_construction_suppliers" name="Fornecedores e Compras" parent="menu_construction_main"/>-->
-<!--    <menuitem id="menu_construction_invoices" name="Financeiro e Faturamento" parent="menu_construction_main"/>-->
-<!--    <menuitem id="menu_construction_reports" name="Relatórios" parent="menu_construction_main"/>-->
-<!--    <menuitem id="menu_construction_settings" name="Configurações" parent="menu_construction_main"/>-->
+    <menuitem id="menu_cstr_work" name="Constructions" parent="menu_cstr_main" action="action_cstr_work" sequence="10"/>
+    <menuitem id="menu_cstr_shifts" name="Employess and Turns" parent="menu_cstr_main" action="action_cstr_shifts" sequence="20"/>
+    <menuitem id="menu_cstr_projects" name="Construction Projects" parent="menu_cstr_main" action="action_cstr_project" sequence="30"/>
+<!--    <menuitem id="menu_cstr_materials" name="Estoque de Materiais" parent="menu_cstr_main"/>-->
+<!--    <menuitem id="menu_cstr_suppliers" name="Fornecedores e Compras" parent="menu_cstr_main"/>-->
+<!--    <menuitem id="menu_cstr_invoices" name="Financeiro e Faturamento" parent="menu_cstr_main"/>-->
+<!--    <menuitem id="menu_cstr_reports" name="Relatórios" parent="menu_cstr_main"/>-->
+<!--    <menuitem id="menu_cstr_settings" name="Configurações" parent="menu_cstr_main"/>-->
 
-<!--    <menuitem id="menu_construction_material_report" name="Relatório de Utilização de Materiais" parent="menu_construction_reports"/>-->
-<!--    <menuitem id="menu_construction_financial_report" name="Relatório Financeiro" parent="menu_construction_reports"/>-->
+<!--    <menuitem id="menu_cstr_material_report" name="Relatório de Utilização de Materiais" parent="menu_cstr_reports"/>-->
+<!--    <menuitem id="menu_cstr_financial_report" name="Relatório Financeiro" parent="menu_cstr_reports"/>-->
 </odoo>
 

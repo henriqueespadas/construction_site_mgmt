@@ -18,3 +18,4 @@ class HrEmployee(models.Model):
         ],
         string="Role in Construction",
     )
+

@@ -2,7 +2,7 @@ from odoo import api, fields, models
 
 
 class ConstructionWork(models.Model):
-    _name = "construction.work"
+    _name = "cstr.work"
     _description = "Construction Work"
     _inherit = ["mail.thread", "mail.activity.mixin"]
 
@@ -37,10 +37,10 @@ class ConstructionWork(models.Model):
     description = fields.Text("Description", track_visibility="onchange")
     notes = fields.Text("Notes")
     work_line_ids = fields.One2many(
-        "construction.work.line", "work_id", string="Work Lines"
+        "cstr.work.line", "work_id", string="Work Lines"
     )
     project_id = fields.Many2one(
-        "project.project", string="Related Project", track_visibility="onchange"
+        "cstr.project", string="Related Project", track_visibility="onchange"
     )
     contractor_id = fields.Many2one(
         "res.partner", string="Contractor", track_visibility="onchange"

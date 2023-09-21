@@ -1,17 +1,33 @@
 <odoo>
 
-    <record id="view_project_project_form_inherit_construction" model="ir.ui.view">
-        <field name="name">project.project.form.inherit.construction</field>
-        <field name="model">project.project</field>
-        <field name="inherit_id" ref="project.edit_project"/>
+    <record id="cstr_project_form_view" model="ir.ui.view">
+        <field name="name">cstr.project.form</field>
+        <field name="model">cstr.project</field>
         <field name="arch" type="xml">
-            <xpath expr="//sheet" position="inside">
-                <group>
+            <form>
+                <sheet>
+                    <field name="name"/>
+                    <field name="user_id"/>
                     <field name="budget"/>
                     <field name="costs"/>
-                </group>
-            </xpath>
+                </sheet>
+            </form>
         </field>
+    </record>
+
+    <record id="cstr_project_tree_view" model="ir.ui.view">
+        <field name="name">cstr.project.tree"</field>
+        <field name="model">cstr.project</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="budget"/>
+                <field name="costs"/>
+            </tree>
+        </field>
+
+
     </record>
 
 </odoo>

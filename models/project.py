@@ -2,7 +2,10 @@ from odoo import models, fields
 
 
 class ConstructionProject(models.Model):
-    _inherit = "project.project"
+    _name = "cstr.project"
+    _inherits = {"project.project": "project_id"}
+    # _inherit = "project.project"
 
     budget = fields.Float(string="Budget")
     costs = fields.Float(string="Costs")
+    project_id = fields.Many2one("project.project", string="Project")
