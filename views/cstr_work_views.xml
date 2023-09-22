@@ -16,23 +16,22 @@
                     </group>
                     <group>
                         <field name="estimated_budget"/>
-                        <field name="employee_ids"/>
                         <field name="state"/>
                         <field name="work_type"/>
                         <field name="notes"/>
+                        <field name="employee_ids"/>
                     </group>
+                    <notebook>
+                        <page>
+                            <field name="work_line_ids">
+                                <tree>
+                                    <field name="description"/>
+                                    <field name="amount"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
-                <notebook>
-                    <page>
-                        <field name="work_line_ids">
-                            <tree>
-                                <field name="description"/>
-                                <field name="amount"/>
-                                <field name="work_id"/>
-                            </tree>
-                        </field>
-                    </page>
-                </notebook>
             </form>
         </field>
     </record>

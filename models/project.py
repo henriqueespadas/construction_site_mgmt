@@ -9,3 +9,4 @@ class ConstructionProject(models.Model):
     budget = fields.Float(string="Budget")
     costs = fields.Float(string="Costs")
     project_id = fields.Many2one("project.project", string="Project")
+    supplier_id = fields.Many2one("cstr.supplier", string="Supplier")

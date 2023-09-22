@@ -18,4 +18,16 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <record id="action_materials" model="ir.actions.act_window">
+        <field name="name">Materials</field>
+        <field name="res_model">cstr.materials</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_supplier" model="ir.actions.act_window">
+        <field name="name">Suppliers</field>
+        <field name="res_model">cstr.supplier</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
 </odoo>
