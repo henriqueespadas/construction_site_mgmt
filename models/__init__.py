@@ -5,3 +5,4 @@ from . import cstr_work_line
 from . import project
 from . import materials
 from . import supplier
+from . import invoice

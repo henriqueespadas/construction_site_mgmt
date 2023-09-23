@@ -6,9 +6,8 @@
     <menuitem id="menu_cstr_shifts" name="Employess and Turns" parent="menu_cstr_main" action="action_cstr_shifts" sequence="20"/>
     <menuitem id="menu_cstr_projects" name="Construction Projects" parent="menu_cstr_main" action="action_cstr_project" sequence="30"/>
     <menuitem id="menu_cstr_materials" name="Materials" parent="menu_cstr_main" action="action_materials" sequence="40"/>
-    <menuitem id="menu_cstr_suppliers" name="Supplier" parent="menu_cstr_main" action="action_supplier"/>
-
-<!--    <menuitem id="menu_cstr_invoices" name="Financeiro e Faturamento" parent="menu_cstr_main"/>-->
+    <menuitem id="menu_cstr_suppliers" name="Supplier" parent="menu_cstr_main" action="action_supplier" sequence="50"/>
+    <menuitem id="menu_cstr_invoices" name="Invoice" parent="menu_cstr_main" action="action_invoice" sequence="60"/>
 <!--    <menuitem id="menu_cstr_reports" name="Relatórios" parent="menu_cstr_main"/>-->
 <!--    <menuitem id="menu_cstr_settings" name="Configurações" parent="menu_cstr_main"/>-->
 

@@ -1,0 +1,22 @@
+<odoo>
+
+    <record id="view_cstr_invoice_form" model="ir.ui.view">
+        <field name="name">cstr.invoice.form</field>
+        <field name="model">cstr.invoice</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="invoice_id" invisible="1"/>
+                    </group>
+                    <group string="Informações de Construção">
+                        <field name="cstr_project_id"/>
+                        <field name="additional_costs"/>
+                        <field name="retention_fee"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

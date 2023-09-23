@@ -10,4 +10,3 @@ class ConstructionSupplier(models.Model):
     materials_ids = fields.One2many("cstr.materials", "supplier_id", string="Materials")
     work_ids = fields.One2many("cstr.work", "supplier_id", string="Works")
     project_ids = fields.One2many("cstr.project", "supplier_id", string="Projects")
-

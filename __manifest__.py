@@ -7,7 +7,11 @@
     "author": "Espadas",
     "depends": [
         "hr",
+        "stock",
+        "account",
         "project",
+        "purchase",
+        "website",
     ],
     "data": [
         "security/ir.model.access.csv",
@@ -16,6 +20,7 @@
         "views/cstr_shifit_views.xml",
         "views/cstr_project_views.xml",
         "views/cstr_work_views.xml",
+        "views/invoice_views.xml",
     ],
     "installable": True,
     "application": True,
