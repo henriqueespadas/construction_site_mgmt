@@ -11,6 +11,8 @@
                         <field name="employee_id"/>
                         <field name="start_time"/>
                         <field name="end_time"/>
+                        <field name="project_id"/>
+                        <field name="work_id"/>
                     </group>
                 </sheet>
             </form>
@@ -25,6 +27,8 @@
                 <field name="employee_id"/>
                 <field name="start_time"/>
                 <field name="end_time"/>
+                <field name="project_id"/>
+                <field name="work_id"/>
             </tree>
         </field>
     </record>

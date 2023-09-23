@@ -21,6 +21,7 @@
         "views/cstr_project_views.xml",
         "views/cstr_work_views.xml",
         "views/invoice_views.xml",
+        "views/materials.xml",
     ],
     "installable": True,
     "application": True,

@@ -8,6 +8,8 @@ class ConstructionShift(models.Model):
     start_time = fields.Datetime()
     end_time = fields.Datetime()
     employee_id = fields.Many2one("hr.employee", string="Employee")
+    project_id = fields.Many2one("cstr.project", string="Project")
+    work_id = fields.Many2one("cstr.work", string="Work")
 
     @api.model
     def allocate_shift(self, employee_id, start_time, end_time):

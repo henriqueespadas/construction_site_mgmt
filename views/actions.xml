@@ -6,7 +6,7 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <record id="action_cstr_project" model="ir.actions.act_window">
+    <record id="action_project" model="ir.actions.act_window">
         <field name="name">Projects</field>
         <field name="res_model">cstr.project</field>
         <field name="view_mode">tree,form</field>

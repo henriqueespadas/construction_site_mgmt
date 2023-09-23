@@ -36,7 +36,8 @@ class ConstructionWork(models.Model):
     end_date = fields.Date("End Date", track_visibility="onchange")
     description = fields.Text("Description", track_visibility="onchange")
     notes = fields.Text("Notes")
-    work_line_ids = fields.One2many("cstr.work.line", "work_id", string="Work Lines")
+    work_line_ids = fields.One2many('cstr.work.line', 'work_id', string='Work Line Items',
+                                    context={'default_work_id': 'work_id'})
     project_id = fields.Many2one(
         "cstr.project", string="Related Project", track_visibility="onchange"
     )

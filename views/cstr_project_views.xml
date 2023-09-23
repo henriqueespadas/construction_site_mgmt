@@ -6,10 +6,12 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <field name="name"/>
-                    <field name="user_id"/>
-                    <field name="budget"/>
-                    <field name="costs"/>
+                    <group>
+                        <field name="name"/>
+                        <field name="user_id"/>
+                        <field name="budget"/>
+                        <field name="costs"/>
+                    </group>
                 </sheet>
             </form>
         </field>
@@ -26,8 +28,6 @@
                 <field name="costs"/>
             </tree>
         </field>
-
-
     </record>
 
 </odoo>

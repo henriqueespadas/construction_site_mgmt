@@ -12,3 +12,10 @@ class ConstructionMaterials(models.Model):
     total_price = fields.Float(string="Total Price")
     work_id = fields.Many2one("cstr.work", string="Work")
     supplier_id = fields.Many2one("cstr.supplier", string="Supplier")
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('requested', 'Requested'),
+        ('ordered', 'Ordered'),
+        ('received', 'Received'),
+        ('cancelled', 'Cancelled')
+    ], string='Purchase Status', default='draft')
