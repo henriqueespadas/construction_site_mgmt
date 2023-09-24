@@ -10,15 +10,17 @@
                 </header>
                 <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="description"/>
-                        <field name="quantity"/>
-                        <field name="work_id"/>
-                    </group>
-                    <group>
-                        <field name="unit_price"/>
-                        <field name="total_price"/>
-                        <field name="supplier_id"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="quantity"/>
+                            <field name="work_id"/>
+                        </group>
+                        <group>
+                            <field name="unit_price"/>
+                            <field name="total_price"/>
+                            <field name="supplier_id"/>
+                        </group>
                     </group>
                 </sheet>
             </form>

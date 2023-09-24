@@ -6,3 +6,4 @@ from . import project
 from . import materials
 from . import supplier
 from . import invoice
+from . import material_budget

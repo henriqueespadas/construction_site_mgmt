@@ -10,11 +10,13 @@
     <menuitem id="menu_materials" name="Materials" parent="menu_cstr_main" action="action_materials" sequence="40"/>
     <menuitem id="menu_suppliers" name="Supplier" parent="menu_cstr_main" action="action_supplier" sequence="50"/>
     <menuitem id="menu_invoices" name="Invoice" parent="menu_cstr_main" action="action_invoice" sequence="60"/>
-<!--    <menuitem id="menu_reports" name="Reports" parent="menu_cstr_main" sequence="70"/>-->
+    <menuitem id="menu_cstr_material_budget" name="Material Budgets" parent="menu_cstr_main"
+              action="action_cstr_material_budget" sequence="70"/>
+    <!--    <menuitem id="menu_reports" name="Reports" parent="menu_cstr_main" sequence="70"/>-->
     <!--    <menuitem id="menu_cstr_settings" name="Configurações" parent="menu_cstr_main"/>-->
 
     <!--    <menuitem id="menu_cstr_materials_report" name="Report Materials" parent="menu_cstr_reports" action="action_reports_materials" sequence="10"/>-->
-<!--    <menuitem id="menu_cstr_financial_report" name="Reports Financial" parent="menu_cstr_reports"-->
-<!--              action="action_reports_financials" sequence="20"/>-->
+    <!--    <menuitem id="menu_cstr_financial_report" name="Reports Financial" parent="menu_cstr_reports"-->
+    <!--              action="action_reports_financials" sequence="20"/>-->
 </odoo>
 

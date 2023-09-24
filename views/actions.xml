@@ -36,4 +36,10 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <record id="action_cstr_material_budget" model="ir.actions.act_window">
+        <field name="name">Material Budgets</field>
+        <field name="res_model">cstr.material.budget</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
 </odoo>
