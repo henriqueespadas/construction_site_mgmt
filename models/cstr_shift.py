@@ -1,37 +1,47 @@
 from odoo import api, fields, models, _
-
+from odoo.exceptions import ValidationError
 
 class ConstructionShift(models.Model):
     _name = "cstr.shift"
     _description = "Construction Shift"
 
+    project_id = fields.Many2one("cstr.project", string="Project")
+    employee_id = fields.Many2one("hr.employee", string="Employee")
+    work_id = fields.Many2one("cstr.work", string="Work")
     start_time = fields.Datetime()
     end_time = fields.Datetime()
-    employee_id = fields.Many2one("hr.employee", string="Employee")
-    project_id = fields.Many2one("cstr.project", string="Project")
-    work_id = fields.Many2one("cstr.work", string="Work")
 
-    @api.model
-    def allocate_shift(self, employee_id, start_time, end_time):
-        if not start_time or not end_time:
-            raise Warning(_("Start time and end time must be provided"))
+    @api.depends("start_time", "end_time")
+    def _check_shift(self):
+        for record in self:
+            if not record.start_time or not record.end_time:
+                raise ValidationError(_("Start time and end time must be provided"))
 
-        if start_time >= end_time:
-            raise Warning(_("End time must be greater than start time"))
+            if record.start_time >= record.end_time:
+                raise ValidationError(_("End time must be greater than start time"))
 
-        conflicting_shifts = self.search(
-            [
-                ("employee_id", "=", employee_id),
-                ("start_time", "<", end_time),
-                ("end_time", ">", start_time),
-            ]
-        )
+            conflicting_shifts = self.search(
+                [
+                    ("employee_id", "=", record.employee_id.id),
+                    ("start_time", "<", record.end_time),
+                    ("end_time", ">", record.start_time),
+                    ("id", "!=", record.id),
+                ]
+            )
 
-        if conflicting_shifts:
-            raise Warning(_("Employee is already allocated in a conflicting shift"))
+            if conflicting_shifts:
+                raise ValidationError(_("Employee is already allocated in a conflicting shift"))
 
-        self.create(
-            {"employee_id": employee_id, "start_time": start_time, "end_time": end_time}
-        )
+    @api.model_create_multi
+    def create(self, vals_list):
+        records = super(ConstructionShift, self).create(vals_list)
+        records._check_shift()
+        return records
 
-        return True
+    def write(self, vals):
+        result = super(ConstructionShift, self).write(vals)
+        self._check_shift()
+        return result
+
+
+

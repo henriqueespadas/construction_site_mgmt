@@ -5,9 +5,9 @@ class ConstructionWorkLine(models.Model):
     _name = "cstr.work.line"
     _description = "Construction Work Line Item"
 
+    work_id = fields.Many2one("cstr.work", string="Work")
     description = fields.Char("Description")
     amount = fields.Float("Amount")
-    work_id = fields.Many2one("cstr.work", string="Work")
     start_date = fields.Date("Start Date")
     end_date = fields.Date("End Date")
     unity = fields.Selection([

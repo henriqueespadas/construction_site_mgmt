@@ -13,6 +13,7 @@
                             <field name="end_date"/>
                             <field name="project_id"/>
                             <field name="estimated_budget"/>
+                            <field name="actual_budget"/>
                         </group>
                         <group>
                             <field name="state"/>

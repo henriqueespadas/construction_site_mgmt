@@ -3,7 +3,7 @@ from . import hr_employee
 from . import cstr_work
 from . import cstr_work_line
 from . import project
-from . import materials
+from . import cstr_materials
 from . import supplier
-from . import invoice
-from . import material_budget
+from . import cstr_invoice
+from . import cstr_materials_budget
