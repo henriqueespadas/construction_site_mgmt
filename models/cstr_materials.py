@@ -7,10 +7,10 @@ class ConstructionMaterials(models.Model):
 
     work_id = fields.Many2one("cstr.work", string="Work")
     supplier_id = fields.Many2one("cstr.supplier", string="Supplier")
-    budget_ids = fields.One2many('cstr.material.budget', 'material_id', string='Budgets')
+    budget_ids = fields.One2many('cstr.materials.budget', 'material_id', string='Budgets')
     name = fields.Char(string="Name")
     description = fields.Char(string="Description")
-    quantity = fields.Integer(string="Quantity")
+    quantity = fields.Float(string="Quantity")
     unit_price = fields.Float(string="Unit Price")
     total_price = fields.Float(string="Total Price")
     state = fields.Selection([

@@ -1,7 +1,7 @@
 from odoo import api, fields, models
 
 class CstrMaterialBudget(models.Model):
-    _name = 'cstr.material.budget'
+    _name = 'cstr.materials.budget'
     _description = 'Material Budget for Construction'
 
     supplier_id = fields.Many2one('res.partner', 'Supplier', required=True, domain=[('supplier_rank', '>', 0)])

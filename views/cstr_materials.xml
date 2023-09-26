@@ -6,9 +6,11 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="button_request_material" string="Confirm" type="object" class="oe_highlight"/>
+                    <button name="button_request_material" string="Confirm" type="object" class="oe_highlight"
+                            attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('id', '=', False)]}"/>
                     <button name="button_cancel" string="Cancel" type="object" class="oe_link"/>
-                    <button name="button_open_budget_wizard" string="Generate Budget" type="object"/>
+                    <button name="button_open_budget_wizard" string="Generate Budget" type="object"
+                            attrs="{'invisible': [('state', '!=', 'requested')]}"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
@@ -19,7 +21,7 @@
                             <field name="quantity"/>
                             <field name="work_id"/>
                         </group>
-                        <field name="budget_ids" widget="one2many_list">
+                        <field name="budget_ids" widget="one2many_list" readonly="1">
                             <tree editable="bottom">
                                 <field name="supplier_id"/>
                                 <field name="unit_price"/>

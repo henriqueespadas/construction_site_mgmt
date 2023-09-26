@@ -7,14 +7,16 @@ class MaterialsBudgetWizard(models.TransientModel):
     supplier_ids = fields.Many2many("res.partner", string="Suppliers", domain=[('supplier_rank', '>', 0)])
     unit_price = fields.Float(string="Unit Price")
     quantity = fields.Float(string="Quantity")
+    brand = fields.Char(string="Brand")
 
     def button_generate_budget(self):
         for supplier in self.supplier_ids:
-            self.env["cstr.material.budget"].create({
+            self.env["cstr.materials.budget"].create({
                 'material_id': self.material_id.id,
                 'supplier_id': supplier.id,
                 'unit_price': self.unit_price,
                 'quantity': self.quantity,
+                'brand': self.brand,
             })
 
 
