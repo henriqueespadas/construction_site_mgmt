@@ -14,7 +14,7 @@
         </field>
     </record>
 
-    <record id="view_cstr_materials_budget_form" model="ir.ui.view">
+    <record id="cstr_materials_budget_form_view" model="ir.ui.view">
         <field name="name">cstr.materials.budget.form</field>
         <field name="model">cstr.materials.budget</field>
         <field name="arch" type="xml">

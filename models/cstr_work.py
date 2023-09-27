@@ -13,8 +13,12 @@ class ConstructionWork(models.Model):
         "res.partner", string="Contractor", track_visibility="onchange"
     )
     supplier_id = fields.Many2one("cstr.supplier", string="Supplier")
-    work_line_ids = fields.One2many('cstr.work.line', 'work_id', string='Work Line Items',
-                                    context={'default_work_id': 'work_id'})
+    work_line_ids = fields.One2many(
+        "cstr.work.line",
+        "work_id",
+        string="Work Line Items",
+        context={"default_work_id": "work_id"},
+    )
     employee_ids = fields.Many2many("hr.employee", string="Employees")
     name = fields.Char("Work Name", required=True, track_visibility="onchange")
     estimated_budget = fields.Float("Estimated Budget", track_visibility="onchange")
@@ -55,8 +59,8 @@ class ConstructionWork(models.Model):
             ["work_id"],
             lazy=False,
         )
-        budget_dict = {work["work_id"][0]: work["work_id_count"] for work in work_line_list}
+        budget_dict = {
+            work["work_id"][0]: work["work_id_count"] for work in work_line_list
+        }
         for record in self:
             record.actual_budget = budget_dict.get(record.id, 0.0)
-
-

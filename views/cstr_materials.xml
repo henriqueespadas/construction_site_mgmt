@@ -11,6 +11,8 @@
                     <button name="button_cancel" string="Cancel" type="object" class="oe_link"/>
                     <button name="button_open_budget_wizard" string="Generate Budget" type="object"
                             attrs="{'invisible': [('state', '!=', 'requested')]}"/>
+                    <button name="button_open_winner_wizard" string="Generating Order" type="object"
+                            attrs="{'invisible': [('state', '!=', 'requested')]}"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
@@ -20,6 +22,7 @@
                             <field name="description"/>
                             <field name="quantity"/>
                             <field name="work_id"/>
+                            <field name="unity"/>
                         </group>
                         <field name="budget_ids" widget="one2many_list" readonly="1">
                             <tree editable="bottom">
@@ -28,6 +31,7 @@
                                 <field name="freight_cost"/>
                                 <field name="brand"/>
                                 <field name="quantity"/>
+                                <field name="unity"/>
                                 <field name="total_price"/>
                             </tree>
                         </field>
@@ -45,6 +49,7 @@
                 <field name="name"/>
                 <field name="description"/>
                 <field name="quantity"/>
+                <field name="unity"/>
                 <field name="unit_price"/>
                 <field name="total_price"/>
                 <field name="work_id"/>
@@ -53,16 +58,18 @@
         </field>
     </record>
 
-    <record id="view_materials_budget_wizard_form" model="ir.ui.view">
+    <record id="materials_budget_wizard_form_view" model="ir.ui.view">
         <field name="name">materials.budget.wizard.form</field>
         <field name="model">cstr.materials.budget.wizard</field>
         <field name="arch" type="xml">
             <form>
                 <group>
-                    <field name="material_id"/>
+                    <field name="material_id" readonly="True"/>
+                    <field name="unity" readonly="True"/>
+                    <field name="quantity" readonly="True"/>
                     <field name="supplier_ids" widget="many2many_tags" options="{'no_create': True}"/>
                     <field name="unit_price"/>
-                    <field name="quantity"/>
+                    <field name="brand"/>
                 </group>
                 <footer>
                     <button string="Generate Budget" type="object" class="btn-primary" name="button_generate_budget"/>
@@ -71,6 +78,31 @@
             </form>
         </field>
     </record>
+
+    <record id="wizard_budget_winner_form_view" model="ir.ui.view">
+    <field name="name">Select Budget Winner</field>
+    <field name="model">cstr.materials.budget.wizard</field>
+    <field name="arch" type="xml">
+        <form>
+            <group>
+                <field name="material_budget_ids" widget="many2many_tags" options="{'no_create': True}">
+                    <tree editable="bottom">
+                        <field name="supplier_id"/>
+                        <field name="unit_price"/>
+                        <field name="brand"/>
+                        <field name="quantity"/>
+                        <field name="selected_winner"/>
+                    </tree>
+                </field>
+            </group>
+            <footer>
+                <button string="Select Winner" type="object" class="btn-primary" name="button_select_winner"/>
+                <button string="Cancel" class="btn-secondary" special="cancel"/>
+            </footer>
+        </form>
+    </field>
+</record>
+
 
 
 </odoo>

@@ -1,6 +1,7 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
+
 class ConstructionShift(models.Model):
     _name = "cstr.shift"
     _description = "Construction Shift"
@@ -30,7 +31,9 @@ class ConstructionShift(models.Model):
             )
 
             if conflicting_shifts:
-                raise ValidationError(_("Employee is already allocated in a conflicting shift"))
+                raise ValidationError(
+                    _("Employee is already allocated in a conflicting shift")
+                )
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -42,6 +45,3 @@ class ConstructionShift(models.Model):
         result = super(ConstructionShift, self).write(vals)
         self._check_shift()
         return result
-
-
-
