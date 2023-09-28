@@ -33,6 +33,7 @@
                                 <field name="quantity"/>
                                 <field name="unity"/>
                                 <field name="total_price"/>
+                                <field name="selected_winner"/>
                             </tree>
                         </field>
                     </group>
@@ -70,6 +71,7 @@
                     <field name="supplier_ids" widget="many2many_tags" options="{'no_create': True}"/>
                     <field name="unit_price"/>
                     <field name="brand"/>
+                    <field name="freight_cost"/>
                 </group>
                 <footer>
                     <button string="Generate Budget" type="object" class="btn-primary" name="button_generate_budget"/>
@@ -85,18 +87,18 @@
     <field name="arch" type="xml">
         <form>
             <group>
-                <field name="material_budget_ids" widget="many2many_tags" options="{'no_create': True}">
+                <field name="material_budget_ids">
                     <tree editable="bottom">
-                        <field name="supplier_id"/>
-                        <field name="unit_price"/>
-                        <field name="brand"/>
-                        <field name="quantity"/>
-                        <field name="selected_winner"/>
+                        <field name="supplier_id" readonly="1"/>
+                        <field name="unit_price" readonly="1"/>
+                        <field name="brand" readonly="1"/>
+                        <field name="quantity" readonly="1"/>
+                        <field name="selected_winner" widget="boolean_toggle" editable="1"/>
                     </tree>
                 </field>
             </group>
             <footer>
-                <button string="Select Winner" type="object" class="btn-primary" name="button_select_winner"/>
+                <button string="Ok" type="object" class="btn-primary" name="button_confirm"/>
                 <button string="Cancel" class="btn-secondary" special="cancel"/>
             </footer>
         </form>

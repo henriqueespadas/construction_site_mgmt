@@ -1,25 +1,20 @@
 from odoo import api, fields, models
-import logging
-
-_logger = logging.getLogger(__name__)
-
+from odoo.exceptions import ValidationError
 
 class MaterialsBudgetWizard(models.TransientModel):
     _name = "cstr.materials.budget.wizard"
     _description = "Materials Budget Wizard"
 
-    material_budget_ids = fields.Many2many(
-        "cstr.materials.budget",
-        compute="_compute_material_budget_ids",
-        string="Material Budgets",
-    )
+    material_budget_ids = fields.Many2many('cstr.materials.budget', string='Material Budgets')
     material_id = fields.Many2one("cstr.materials", string="Material")
     supplier_ids = fields.Many2many(
         "res.partner", string="Suppliers", domain=[("supplier_rank", ">", 0)]
     )
+    selected_winner = fields.Boolean(string="Selected Winner")
     unit_price = fields.Float(string="Unit Price")
     quantity = fields.Float(string="Quantity")
     brand = fields.Char(string="Brand")
+    freight_cost = fields.Float(string="Freight Cost")
     unity = fields.Selection(
         [
             ("sq_m", "Square Meter"),
@@ -45,29 +40,22 @@ class MaterialsBudgetWizard(models.TransientModel):
                     "unit_price": self.unit_price,
                     "quantity": self.quantity,
                     "brand": self.brand,
+                    "freight_cost": self.freight_cost,
                 }
             )
-
-    def button_select_winner(self):
-        for line in self.material_budget_ids:
-            if line.selected_winner:
-                line.material_id.write(
-                    {
-                        "supplier_id": line.supplier_id.id,
-                        "unit_price": line.unit_price,
-                        "budget_winner": True,
-                        "state": "ordered",
-                    }
-                )
-                other_lines = self.material_budget_ids.filtered(
-                    lambda x: x.id != line.id
-                )
-                other_lines.write({"budget_winner": False})
-        return {"type": "ir.actions.act_window_close"}
 
     @api.depends("material_id")
     def _compute_material_budget_ids(self):
         for wizard in self:
             if wizard.material_id:
                 wizard.material_budget_ids = [(6, 0, wizard.material_id.budget_ids.ids)]
-                _logger.info("Budget IDs: %s", wizard.material_id.budget_ids.ids)
+
+    def button_confirm(self):
+        selected_suppliers = self.material_budget_ids.filtered(lambda r: r.selected_winner)
+        if len(selected_suppliers) > 1:
+            raise ValidationError("Only one supplier can be selected.")
+        elif len(selected_suppliers) == 0:
+            raise ValidationError("No suppliers were selected.")
+        else:
+            self.material_id.write({'state': 'ordered'})
+            return {'type': 'ir.actions.act_window_close'}

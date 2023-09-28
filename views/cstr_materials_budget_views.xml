@@ -7,8 +7,10 @@
             <tree>
                 <field name="material_id"/>
                 <field name="supplier_id"/>
+                <field name="unity"/>
                 <field name="unit_price"/>
                 <field name="quantity"/>
+                <field name="freight_cost"/>
                 <field name="total_price"/>
             </tree>
         </field>
@@ -23,8 +25,10 @@
                     <group>
                         <field name="material_id"/>
                         <field name="supplier_id"/>
+                        <field name="unity"/>
                         <field name="unit_price"/>
                         <field name="quantity"/>
+                        <field name="freight_cost"/>
                         <field name="total_price"/>
                     </group>
                 </sheet>
