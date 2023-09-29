@@ -16,6 +16,7 @@
                             <field name="actual_budget"/>
                         </group>
                         <group>
+                            <field name="responsible_id"/>
                             <field name="state"/>
                             <field name="work_type"/>
                             <field name="notes"/>

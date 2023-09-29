@@ -13,6 +13,7 @@ class ConstructionWork(models.Model):
         "res.partner", string="Contractor", track_visibility="onchange"
     )
     supplier_id = fields.Many2one("cstr.supplier", string="Supplier")
+    responsible_id = fields.Many2one('res.partner', string='Responsible')
     work_line_ids = fields.One2many(
         "cstr.work.line",
         "work_id",
