@@ -87,7 +87,7 @@
     <field name="arch" type="xml">
         <form>
             <group>
-                <field name="material_budget_ids">
+                <field name="material_budget_ids" readonly="1">
                     <tree editable="bottom">
                         <field name="supplier_id" readonly="1"/>
                         <field name="unit_price" readonly="1"/>

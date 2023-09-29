@@ -51,6 +51,7 @@ class MaterialsBudgetWizard(models.TransientModel):
                 wizard.material_budget_ids = [(6, 0, wizard.material_id.budget_ids.ids)]
 
     def button_confirm(self):
+        Mail = self.env['mail.mail']
         selected_suppliers = self.material_budget_ids.filtered(lambda r: r.selected_winner)
         if len(selected_suppliers) > 1:
             raise ValidationError("Only one supplier can be selected.")
@@ -58,4 +59,12 @@ class MaterialsBudgetWizard(models.TransientModel):
             raise ValidationError("No suppliers were selected.")
         else:
             self.material_id.write({'state': 'ordered'})
+            email_values = {
+                'subject': 'Order Confirmation',
+                'body_html': '<h1>Order Confirmation</h1><p>Your order has been confirmed.</p>',
+                'email_to': selected_suppliers.supplier_id.email,
+                'email_from': self.env.user.email,
+            }
+            email = Mail.create(email_values)
+            email.send()
             return {'type': 'ir.actions.act_window_close'}
