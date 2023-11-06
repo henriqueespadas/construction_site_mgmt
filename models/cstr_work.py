@@ -26,6 +26,7 @@ class ConstructionWork(models.Model):
     actual_budget = fields.Float(
         "Actual Budget", compute="_compute_actual_budget", store=True
     )
+    work_progress_bar = fields.Float(string='Progresso', default=0.0, compute='_compute_work_progress_bar')
     work_type = fields.Selection(
         [
             ("new", "New Construction"),
@@ -51,17 +52,24 @@ class ConstructionWork(models.Model):
     end_date = fields.Date("End Date", track_visibility="onchange")
     description = fields.Text("Description", track_visibility="onchange")
     notes = fields.Text("Notes")
+    priority = fields.Selection([
+        ('0', 'Normal'),
+        ('1', 'Muito Baixa'),
+        ('2', 'Baixa'),
+        ('3', 'Média'),
+        ('4', 'Alta'),
+        ('5', 'Muito Alta')
+    ], string='Prioridade', default='3')
 
-    @api.depends("work_line_ids.amount")
+    @api.depends('work_line_ids.amount')
     def _compute_actual_budget(self):
-        work_line_list = self.env["cstr.work.line"].read_group(
-            [("work_id", "in", self.ids)],
-            ["work_id"],
-            ["work_id"],
-            lazy=False,
-        )
-        budget_dict = {
-            work["work_id"][0]: work["work_id_count"] for work in work_line_list
-        }
         for record in self:
-            record.actual_budget = budget_dict.get(record.id, 0.0)
+            total_amount = sum(line.amount for line in record.work_line_ids)
+            record.actual_budget = total_amount
+
+    def _compute_work_progress_bar(self):
+        for record in self:
+            total_amount = sum(line.work_line_progress_bar for line in record.work_line_ids)
+            total_amount = total_amount / len(record.work_line_ids)
+            record.work_progress_bar = total_amount
+
