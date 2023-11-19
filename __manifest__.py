@@ -15,8 +15,10 @@
     ],
     "data": [
         "security/ir.model.access.csv",
+        "data/google_maps_api_key_data.xml",
         "views/cstr_actions.xml",
         "views/cstr_menus.xml",
+        "views/cstr_assets.xml",
         "views/cstr_shift_views.xml",
         "views/cstr_project_views.xml",
         "views/cstr_work_views.xml",

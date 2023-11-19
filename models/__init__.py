@@ -4,6 +4,6 @@ from . import cstr_work
 from . import cstr_work_line
 from . import cstr_project
 from . import cstr_materials
-from . import supplier
+from . import cstr_supplier
 from . import cstr_invoice
 from . import cstr_materials_budget

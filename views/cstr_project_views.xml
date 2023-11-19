@@ -12,7 +12,11 @@
                         <field name="budget"/>
                         <field name="costs"/>
                         <field name="address"/>
+                        <field name="number"/>
+                        <field name="cep"/>
+                        <field name="bairro"/>
                     </group>
+                    <field name="google_maps_url" widget="google_maps"/>
                 </sheet>
             </form>
         </field>
